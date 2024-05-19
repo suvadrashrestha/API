@@ -12,7 +12,7 @@ class Company(models.Model):
                                                   ('Non IT','Non IT')))
     added_date=models.DateTimeField(auto_now=True)
     active=models.BooleanField(default=True)
-    company_image=models.FileField(upload_to="company/",max_length=300,null=True,default=None)
+    company_image=models.FileField(upload_to="company/",max_length=300,blank=True,null=True,default=None)
     def __str__(self):
       return self.name
   
