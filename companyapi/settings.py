@@ -135,8 +135,13 @@ REST_FRAMEWORK = {
     ,
     'DEFAULT_RENDERER_CLASSES':[
         'rest_framework.renderers.JSONRenderer'
-    ]
+    ],
+    'DEFAULT_PAGINATION_CLASS': 
+        'rest_framework.pagination.LimitOffsetPagination',
+        'PAGE_SIZE': 1
+    ,
 }
 
 MEDIA_ROOTS= BASE_DIR/"media"
 MEDIA_URL="/media/"
+# to define number of pages to be shown
