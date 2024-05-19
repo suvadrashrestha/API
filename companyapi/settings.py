@@ -129,19 +129,35 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
-    ,
-    'DEFAULT_RENDERER_CLASSES':[
-        'rest_framework.renderers.JSONRenderer'
-    ],
+
+
+    # #----- for global  authentication-----
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     # here user can be authenticated but must have permissions for the view
+    #     # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+
+    #     # here user must be authenticate for further process
+    #     'rest_framework.permissions.IsAuthenticated',
+        
+    # ],
+    # 'DEFAULT_AUTHENTICATION_CLASSES': [
+    #     'rest_framework.authentication.SessionAuthentication',
+    #     'rest_framework.authentication.BasicAuthentication',
+    # ],
+
+    
+     #to display data in json format
+    # 'DEFAULT_RENDERER_CLASSES':[
+    #     'rest_framework.renderers.JSONRenderer'
+    # ],
+    # to define number of pages to be shown
     'DEFAULT_PAGINATION_CLASS': 
         'rest_framework.pagination.LimitOffsetPagination',
         'PAGE_SIZE': 1
     ,
+    
 }
 
 MEDIA_ROOTS= BASE_DIR/"media"
 MEDIA_URL="/media/"
-# to define number of pages to be shown
+
