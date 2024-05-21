@@ -28,3 +28,10 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         #the data contains the validate_data data
        # print(data)
         return User.objects.create_user(**data)
+
+
+class UserLoginSerializer(serializers.ModelSerializer):
+    email=serializers.EmailField(max_length=255)
+    class Meta:
+        model=User
+        fields=['email','password']
