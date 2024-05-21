@@ -1,4 +1,10 @@
 from django.http import HttpResponse,JsonResponse
+
+#function based view
+# from rest_framework.response import Response
+
+
+
 def home(request):
-   list=["hello","jeena","add","subtract"]
-   return JsonResponse(list,safe=False)
+   if(request.method=="GET"):
+      return HttpResponse("done")
