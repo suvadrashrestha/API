@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 from datetime import timedelta
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -207,3 +207,13 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
 ]
+# reset link will be valid for 15 min as 900 is in second 
+PASSWORD_RESET_TIMEOUT=900
+
+#email configuration
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
+EMAIL_HOST_USER=os.environ.get("EMAIL_USER")
+EMAIL_HOST_PASSWORD=os.environ.get("EMAIL_PASS")
+EMAIL_USE_TLS=True
